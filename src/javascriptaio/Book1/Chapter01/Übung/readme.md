@@ -1,4 +1,4 @@
-# Gamelet
+# Gamelet - JS-Testdokument
 
 Ein Anfängerprogramm.
 
