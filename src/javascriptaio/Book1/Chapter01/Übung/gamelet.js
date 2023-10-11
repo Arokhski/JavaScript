@@ -8,46 +8,40 @@ Ende des Block Comments.
 */
 
 const ball = document.getElementById("ball"); //hiermit wird der Ball geholt
-document.addEventListener("keydown", handleKeyPress1); //hiermit wird geprüft, ob eine Taste gedrückt wurde
-document.addEventListener("keydown", handleKeyPress2); //hiermit wird geprüft, ob eine Taste gedrückt wurde
-let position = 0; //hiermit wird die anfängliche Position festgelegt
+document.addEventListener("keydown", handleKeyPress); //hiermit wird geprüft, ob eine Taste gedrückt wurde
+let positionX = 0; //hiermit wird die anfängliche Position festgelegt
+let positionY = 0;
 
-function handleKeyPress1(e) {
+function handleKeyPress(e) {
   //das ist die erste Funktion für das drücken einer Taste
   if (e.code === "ArrowLeft") {
-    //...Pfeil-links wird gedrückt ("event.code")
-    position = position - 10; //die Position des Balls wandert 10 Pixel nach links
+    position = positionX -= 10; //die Position des Balls wandert 10 Pixel nach links
   }
   if (e.code === "ArrowRight") {
-    //...Pfeil-rechts wird gedrückt ("event.code")
-    position = position + 10; //die Position des Balls wandert 10 Pixel nach rechts
+    position = positionX += 10; //die Position des Balls wandert 10 Pixel nach rechts
+    if (e.code === "ArrowDown") {
+      position = positionY += 10;
+    }
+    if (e.code === "ArrowUp") {
+      position = positionY -= 10;
+    }
   }
-  if (position < 0) {
-    position = 0;
+  if (positionX < 0) {
+    positionX = 0;
   }
-  refreshOne(); //die Position des Balls wird zurückgesetzt (horizontal)
-}
-//die erste refresh-Funktion wird definiert
-function refreshOne() {
-  
-  ball.style.left = position + "px";
-  ball.style.right = position + "px";
-}
-
-function handleKeyPress2(e) {
-  if (e.code === "ArrowDown") {
-    position = position + 10;
+  if (positionX > window.innerWidth - ball.clientWidth) {
+    positionX = window.innerWidth - ball.clientWidth;
   }
-  if (e.code === "ArrowUp") {
-    position = position - 10;
+  if (positionY < 0) {
+    positionX = 0;
   }
-  if (position < 0) {
-    position = 0;
+  if (positionY > window.innerHeight - ball.clientHeight) {
+    positionY = window.innerHeight - ball.clientHeight;
   }
-  refreshTwo(); //die Position des Ball wird zurückgesetzt (vertikal, hoffentlich)
+  refresh(); //die Position des Balls wird zurückgesetzt (horizontal)
 }
 
-function refreshTwo() {
-    ball.style.top = position + "px";
-    ball.style.bottom = position + "px";
+function refresh() {
+  ball.style.left = positionX + "px";
+  ball.style.top = positionY + "px";
 }
