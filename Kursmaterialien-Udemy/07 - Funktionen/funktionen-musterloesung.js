@@ -2,7 +2,8 @@
 
 const courses = [
   ["Christian", "Annika"], // Kurs 1 mit 2 Teilnehmern
-  ["Julian", "Lisa", "Tobias"] // Kurs 2 mit 3 Teilnehmern
+  ["Julian", "Lisa", "Tobias"], // Kurs 2 mit 3 Teilnehmern
+  ["Eyüp"] // Kurs mit einem Teilnehmer
 ]
 
 // Aufgabe 1
@@ -34,16 +35,16 @@ function getSmallestCourse() {
   let smallestCourse = -1
   let smallestIndex = -1
 
-  for (let i in courses) {
-    let course = courses[i]
+  for (let i in courses) { // i ist Element von "Courses" - 1. Element ist die 1. Liste/array etc.
+    let course = courses[i]  // "for" wird so häufig ausgeführt, wie es array-elemente gibt (hier: 2x)
 
-    if (smallestIndex === -1 || course.length < smallestCourse) {
-      smallestIndex = i
+    if (smallestIndex === -1 || course.length < smallestCourse) { // entweder es gibt keine Liste (-1!) ODER die Liste hat eine länge
+      smallestIndex = i // die Variable smallestIndex übernimmt den Wert von i (und i ist die ermittelte Listennr./Arraynr.) 
       smallestCourse = course.length
     }
   }
 
-  return smallestIndex
+  return smallestIndex // die letzte if-Abfrage trifft nicht zu, der wert von smallestIndex ist der von der vorigen for-schleife 
 }
 
 console.log("getSmallestCourse()", getSmallestCourse())

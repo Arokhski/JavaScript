@@ -8,6 +8,15 @@
 // Schreibe ein kleines Programm, was dies für den Schüler 
 // erledigt ;)
 
+//let straftext = "Ich soll im Unterricht nicht stören."
+//console.log(straftext.repeat(25))
+
+for (let straftextAnzahl = 0; straftextAnzahl < 25; straftextAnzahl++)
+{
+  
+  console.log("Ich soll im Unterricht nicht stören.")
+}
+
 
 // Aufgabe 2: Sprachschule
 //
@@ -22,6 +31,7 @@
 // groß sind, ist deine Lösung richtig!
 //
 // Tipp: Modulo!
+
 let students = [
   "Max", 
   "Monika", 
@@ -30,6 +40,18 @@ let students = [
   "Tobias", 
   "Andreas"
 ]
+let students1 = []
+let students2 = []
+for (const i in students) { // i "in" holt die anzahl der werte aus dem array students
+  if (i % 2 === 0) {  // anzahl der werte wird durch 2 geteilt (% ist modulo und rundet mit rest). der rest der modulo-devision wird mit null verglichen. wenn kein rest, (0) dann wird if ausgeführt. wenn rest, wird else ausgeführt.
+    students1.push(students[i]) // mit push wird zur ersten studentsliste was hinzugefügt. i ist der positionswert der eben ermittelten position der schleife(0-6)
+  }
+  else {  // wird ausgeführt, wenn modulo einen rest hatte. erfasst damit alle anderen teilnehmer
+    students2.push(students[i]) //mit push auch hier die mit i erfassten teilnehmerpositionen
+  }
+}
+console.log(students1)
+console.log(students2)
 
 // Aufgabe 3
 // 
@@ -76,6 +98,23 @@ let prices = [
   650,
   700
 ]
+let costsUntilC1 = 0
+
+for (const i in levels) {
+const level = levels[i]
+const price = prices[i]
+
+costsUntilC1 = costsUntilC1 + price
+if (level === "A1") {
+  continue
+}
+if (level === "C1") {
+  break
+}
+
+console.log("Das kostet die Stufe " + level + ": " + price)
+console.log("Bis zum Level " + level + " sind es " + costsUntilC1 + "€")
+}
 
 // Aufgabe 4
 //

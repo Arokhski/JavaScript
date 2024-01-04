@@ -30,6 +30,20 @@ const courses = [
 function getSmallestCourse() {
   // Ergänze den Code hier! Du darfst die Variable "courses"
   // von außerhalt hier drinnen weiterverwenden!
+
+  let smallestCourse = -1 // Variable wird auf -1 gesetzt
+  let smallestIndex = -1 // Variable wird auf -1 gesetzt
+
+  for (let i in courses) { // Variable i steht für die Elemente in courses
+    let course = courses[i] // Variable course hat jetzt den Wert course mit i darin
+
+    if (smallestIndex === -1 || course.length < smallestCourse) { // wenn smallestIndex 
+      smallestIndex = i
+      smallestCourse = course.length
+    }
+  }
+
+  return smallestIndex
 }
 
 // 1b) Ergänze die Funktion, die einen Teilnehmer in den Kurs

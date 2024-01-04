@@ -1,11 +1,11 @@
 "use strict"
 
 // Wir definieren eine erste Funktion
-function sayHello() {
-  console.log("Hallo Welt!")
+function sayHello(name) {
+  console.log("Hallo " + name)
 }
 
 
-sayHello()
-sayHello()
-sayHello()
+sayHello("Max")
+sayHello("Erika")
+sayHello("Dieter")
