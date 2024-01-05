@@ -10,4 +10,4 @@ const student = {
 console.log(student.age)
 
 console.log(student["na" + "me"])
-console.log(student["gewünschter Kurs"])
+console.log(student["gewünschter " + "Kurs"])

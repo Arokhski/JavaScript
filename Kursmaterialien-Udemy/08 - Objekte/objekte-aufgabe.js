@@ -50,6 +50,8 @@ const LANGUAGE_EN = [
 ]
 
 let DE_TO_EN = {}
+for (const i in LANGUAGE_DE)
+  
 
 // Schreibe deinen Code hier, der das Objekt "DE_TO_EN" befüllt!
 

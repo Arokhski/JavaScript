@@ -56,18 +56,23 @@ console.log("1b) Nicht Erfolgreiche Startvorgänge im Jahr 2018:", failed2018)
 //    Hinweis: 
 //    Bitte beachte, dass eine Rakete u.U. mehrere Satelliten haben kann!
 
-let sumKg = 0
+let sumReuse = 0
 
 for (const launch of launches) {
   if (launch["launch_year"] !== "2018" || launch["launch_success"] === false) {
     continue
-  }
+  }}
 
-  const secondStage = launch["rocket"]["second_stage"]
-
-  for (const payload of secondStage["payloads"]) {
-    const kg = payload["payload_mass_kg"]
-    sumKg+=kg
+  const firstStage = launch["rocket"]["first_stage"]["reused"]
+  const secondStage = launch["rocket"]["second_stage"]["reused"]
+  
+if (Array.isArray(firstStage)) {
+  for (const reuse of firstStage) {
+    let reused = reuse["reused"]
+    if (reused === true) {
+sumReuse++
+    }
+    console.log(sumReuse)
   }
   // console.log("secondStage:", secondStage)
 }

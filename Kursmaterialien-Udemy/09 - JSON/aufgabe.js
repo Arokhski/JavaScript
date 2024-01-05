@@ -10,7 +10,24 @@ const launches = JSON.parse(
   fs.readFileSync("spacex/launches.json", {encoding: "utf-8"})
 )
 
+let counter2018 = 0
 console.log("Anzahl launches:", launches.length)
+for (const launch of launches) {
+if (launch["launch_year"] === "2018") { //sucht nur nach dem jahr 2018 in der datei launches, die als launch hier definiert wurde
+  counter2018++ // fügt dem zähler 1 hinzu
+}
+}
+
+
+let counter2018success = 0
+console.log("Anzahl launches:", launches.length)
+for (const launch of launches) {
+if (launch["launch_year"] === "2018" && launch["launch_success"] === true) { //sucht nur nach dem jahr 2018 in der datei launches und gibt die erfolgreichen starts aus
+  counter2018success++ // fügt dem zähler 1 hinzu
+}
+}
+console.log("Erfolgte Starts im Jahr 2018: ", counter2018, "Davon erfolgreiche Starts: ", counter2018success)
+
 
 // Aufgaben:
 // 
