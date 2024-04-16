@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+</head>
+<body>
+    <h1>Arrays</h1>
+    <script>
+        const data = ["eins", "zwei", "drei"]
+
+        data.push("fünf", "sechs")  //Wert hinten anfügen
+        data.unshift("vorne")       //Wert vorne anfügen
+        data.shift()                //Ersten Wert vorne löschen
+        data.splice(0, 3)           //zähle ab null, lösche bis posi 3
+        
+        console.log(data);
+        document.write(data);
+        console.log(Array.isArray(data))
+        console.log(Array.isArray(document))
+    </script>
+</body>
+</html>

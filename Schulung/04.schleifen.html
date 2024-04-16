@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schleifen</title>
+</head>
+<body>
+    <h1>Schleifen</h1>
+    <script>
+
+        console.clear();
+
+        let farben = ["rot", "grün", "blau", "gelb"]
+        
+        for (let i = farben.length - 1; i >= 0; i = i - 1) {
+            console.log(i, farben[i]);
+            window.document.write(farben[i], "<br>");
+        }
+
+        console.log("------");
+
+        console.log(document);
+        document.write("<hr>");
+
+        for(let eigenschaft in document) {
+            //document.write(eigenschaft, ": ", document[eigenschaft], "<br>");
+            document.write(`<b>`);
+        }
+    </script>
+</body>
+</html>
